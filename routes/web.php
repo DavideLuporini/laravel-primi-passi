@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+
+Route::get('/presentazione', function () {
+    return view('presentazione');
+});
+
+Route::get('/linguaggi', function () {
+
+    $data = [
+        'title' => 'linguaggi conosciuti',
+        'linguaggi' => [
+            'html 5',
+            'css',
+            'javascript',
+            'Vue',
+            'php 8',
+            'laravel',
+        ]
+    ];
+
+
+
+    return view('linguaggi', $data);
+})->name('linguaggi');
+
+
+Route::get('/presentazione', function () {
+    return view('presentazione');
 });
